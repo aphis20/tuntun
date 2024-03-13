@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SignUp.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Remove the unused Link import
 import { API_URL } from '../../config';
 
 const SignUp = () => {
@@ -63,12 +63,23 @@ const SignUp = () => {
                  {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
                         </div>
 
-//apply logic here for other elements such as name, phone and password to take user information
+           {/* Other input fields */}
+           <div className="form-group">
+               <label htmlFor="name">Name</label>
+               <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" id="name" className="form-control" placeholder="Enter your name" aria-describedby="helpId" />
+           </div>
+           <div className="form-group">
+               <label htmlFor="phone">Phone</label>
+               <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" name="phone" id="phone" className="form-control" placeholder="Enter your phone number" aria-describedby="helpId" />
+           </div>
+           <div className="form-group">
+               <label htmlFor="password">Password</label>
+               <input value={password} onChange={(e) => setPassword(e.target.value)} name="password" id="password" className="form-control" placeholder="Enter your password" aria-describedby="helpId" />
+           </div>
          </form>
          </div>
          </div>
          </div>
- //Sign up role is not stored in database. You can apply logic for this according to your react code.
     );
 }
 
