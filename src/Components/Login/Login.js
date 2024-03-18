@@ -15,8 +15,8 @@ const Login = () => {
     if (sessionStorage.getItem('auth-token')) {
       navigate('/');
     }
-  }, []);
-
+  }, [navigate]); // Include navigate in the dependency array
+  
   // Function to handle form submission and API call
   const login = async (e) => {
     e.preventDefault();
